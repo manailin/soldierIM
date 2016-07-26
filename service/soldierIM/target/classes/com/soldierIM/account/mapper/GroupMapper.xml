@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wowtour.account.dao.GroupDao">
+	<resultMap id="GroupMap" type="com.wowtour.account.entity.Group">
+		<id column="id" property="id" />
+		<result column="groupName" property="groupName" />
+		<result column="huanGroupID" property="huanGroupID" />
+		<result column="ownerID" property="ownerID" />
+		<result column="ownerName" property="ownerName" />
+		<result column="status" property="status" />
+		<result column="describ" property="describ" />		
+		<result column="createTime" property="createTime" />
+		<result column="expireTime" property="expireTime" />
+	</resultMap>
+
+		<!--保存 -->
+	<insert id="save" parameterType="com.wowtour.account.entity.Group"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into groups
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="groupName != null">groupName,</if>
+			<if test="ownerID != null">ownerID,</if>
+			<if test="huanGroupID != null">huanGroupID,</if>
+			<if test="ownerName != null">ownerName,</if>
+			<if test="describ != null">describ,</if>
+			<if test="createTime != null">createTime,</if>
+			<if test="expireTime != null">expireTime,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="groupName != null">#{groupName},</if>
+			<if test="ownerID != null">#{ownerID},</if>
+			<if test="huanGroupID != null">#{huanGroupID},</if>
+			<if test="ownerName != null">#{ownerName},</if>
+			<if test="describ != null">#{describ},</if>
+			<if test="createTime != null">#{createTime},</if>
+			<if test="expireTime != null">#{expireTime},</if>
+		</trim>
+	</insert>
+	
+		<!--修改 -->
+	<update id="update" parameterType="com.wowtour.account.entity.Group">
+		update groups
+		<set>
+			<if test="groupName != null">groupName=#{ groupName },</if>
+			<if test="ownerID != null">ownerID=#{ ownerID },</if>
+			<if test="ownerName != null">ownerName=#{ ownerName },</if>
+			<if test="huanGroupID != null">huanGroupID=#{ huanGroupID },</if>
+			<if test="describ != null">describ=#{ describ },</if>
+			<if test="createTime != null">createTime=#{ createTime },</if>
+			<if test="expireTime != null">expireTime=#{ expireTime },</if>
+		</set>
+		where
+		id=#{ id }
+	</update>
+	
+	
+	<!--修改 -->
+	<update id="disableGroup">
+		update groups set status = 'C' where id=#{ groupID }
+	</update>
+	
+	<select id="findById" resultMap="GroupMap">
+		select * from groups where id=#{ groupID}
+	</select>
+	
+	<select id="getGroupInfoByID" resultType="java.util.Map">
+		select id,groupName,huanGroupID,ownerID from groups where id=#{ groupID}
+	</select>
+	
+	<select id="getOwnerbyGoupID" resultType="java.lang.Long">
+		select ownerID from groups where id=#{ groupID}
+	</select>
+	
+	
+</mapper> 
+

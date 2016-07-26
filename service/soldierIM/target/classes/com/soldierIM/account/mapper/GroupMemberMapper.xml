@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wowtour.account.dao.GroupMemberDao">
+	<resultMap id="GroupMemberMap" type="com.wowtour.account.entity.GroupMember">
+		<id column="id" property="id" />
+		<result column="groupID" property="groupID" />
+		<result column="userID" property="userID" />
+		<result column="groupName" property="groupName" />
+		<result column="isNotify" property="isNotify" />
+		<result column="joinTime" property="joinTime" />
+		<result column="status" property="status" />
+		<result column="isAccept" property="isAccept" />
+		<result column="leaveTime" property="leaveTime" />		
+	</resultMap>
+ <!-- 表名 -->
+  <sql id="tableNameSql">
+	group_members 
+  </sql>
+
+	<!-- 用于select查询、insert的公用抽取的列 -->
+	<sql id="commonSelectColumnsPrefix">
+        	id ,
+        	groupID,
+        	userID,
+        	groupName,
+        	isNotify,
+        	joinTime,
+        	status,
+        	isAccept,
+        	leaveTime
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		id = #{id}
+	</sql>
+	
+	<sql id="mainSql">
+		SELECT
+			<include refid="commonSelectColumnsPrefix"/>
+		FROM
+			<include refid="tableNameSql"/> t
+	</sql>
+	<sql id="varSql">
+		<where>
+			<if test="groupID!=null and groupID!=''">and t.groupID like #{groupID} </if>
+			<if test="userID!=null and userID!=''">and t.userID like #{userID} </if>
+		</where>
+	</sql>
+	<select id="findById" parameterType="String" resultMap="GroupMemberMap">
+		<include refid="mainSql"/>
+		where <include refid="conditionOnlyId"/>
+	</select>
+	
+	<select id="findByGroupUser" parameterType="String" resultType="Long">
+		select id from user_group where groupID=#{groupID} and userID=#{userID}
+	</select>
+	
+	<!-- search group member count -->
+	<select id="findCountBy" parameterType="java.util.Map" resultType="INTEGER">
+		SELECT
+			COUNT(*) AS C
+		FROM
+			<include refid="tableNameSql"/> 
+		WHERE groupID =#{groupID}
+	</select>
+	
+	<insert id="save" parameterType="com.wowtour.account.entity.GroupMember">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			<include refid="commonSelectColumnsPrefix"/>
+		)
+		values
+		(	
+			#{id} ,
+			#{groupID} ,
+			#{userID} ,
+			#{groupName} ,
+			#{isNotify} ,
+			#{joinTime} ,
+			#{status} ,
+			#{isAccept} ,
+			#{leaveTime} 
+		)
+	</insert>
+
+	<!-- batch insert -->
+	<insert id="saveBatch" parameterType="java.util.List">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			<include refid="commonSelectColumnsPrefix"/>
+		)
+		values
+	  	<foreach collection="list" item="item" index="index"
+	  		separator=",">
+	  		(
+	  		#{item.id} ,
+			#{item.groupID} ,
+			#{item.userID} ,
+			#{item.groupName} ,
+			#{item.isNotify} ,
+			#{item.joinTime} ,
+			#{item.status} ,
+			#{item.isAccept} ,
+			#{item.leaveTime} 
+			)
+	  	</foreach>
+    </insert>
+  
+	<update id="update" parameterType="com.wowtour.account.entity.GroupMember">
+		update
+			<include refid="tableNameSql"/>
+		set
+			id=#{id} 
+			<if test="groupName!=null and groupName!=''">,groupName=#{groupName} </if>
+			<if test="updator!=null and updator!=''">,updator=#{updator} </if>
+			<if test="isNotify!=null and isNotify!=''">,isNotify=#{isNotify} </if>
+			<if test="joinTime!=null">,joinTime=#{joinTime} </if>
+			<if test="status!=null">,status=#{status} </if>
+			<if test="isAccept!=null">,isAccept=#{isAccept} </if>
+			<if test="leaveTime!=null">,leaveTime=#{leaveTime}</if>
+		where <include refid="conditionOnlyId"/>
+	</update>
+
+	<delete id="deleteById" parameterType="Object">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="delByGroupAndUser" parameterType="java.util.Map">
+		delete from <include refid="tableNameSql"/> where groupId =#{groupID} and userID =#{userID}
+	</delete>
+	
+	<update id="deleteByGroupId" parameterType="java.util.Map">
+		update <include refid="tableNameSql"/> set status = 'C' where <include refid="conditionOnlyId"/>
+	</update>
+	
+	<select id="getByGroupAndUser" resultType="java.lang.Long">
+		select id from <include refid="tableNameSql"/>  where groupId =#{groupID} and userID =#{userID}
+	</select>
+	
+	<select id="getAllMemberbyGroup" resultType="java.util.Map">
+		select mem.userID, acc.email from group_members mem left join account acc on mem.userID=acc.id where mem.groupId =#{groupID}
+	</select>
+	
+	<select id="getOwnGroups" resultType="java.util.Map">
+		select id, groupName,describ, huanGroupID from groups where ownerID =#{userID}
+	</select>
+	
+	<select id="getJionGroups" resultType="java.util.Map">
+		select gro.id, gro.groupName,gro.describ, gro.huanGroupID from group_members mem join groups gro on mem.groupID= gro.id where mem.userID =#{userID}
+	</select>
+</mapper> 
