@@ -5,6 +5,8 @@ public class User {
 	private Long id;
 	
 	private String name;
+	
+	private String password;
 
 	public Long getId() {
 		return id;
@@ -22,9 +24,22 @@ public class User {
 		this.name = name;
 	}
 
+	
+	public String getPasword() {
+		return password;
+	}
+	
+	public void setPasword(String pasword) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password
+				+ "]";
 	}
+
+	
+
 	
 }
