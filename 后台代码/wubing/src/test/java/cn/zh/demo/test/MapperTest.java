@@ -7,12 +7,12 @@ import javax.sql.DataSource;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.yl.mapper.TestMapper;
+import com.yl.dao.MemberDao;
 
 public class MapperTest extends AbstractSpringTest {
 	
 	@Autowired
-	TestMapper testMapper;
+	MemberDao testMapper;
 	@Autowired
 	private DataSource dataSource;
 

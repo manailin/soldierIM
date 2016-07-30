@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yl.domain.User;
+import com.yl.domain.Member;
 import com.yl.service.UserService;
 
 @Controller

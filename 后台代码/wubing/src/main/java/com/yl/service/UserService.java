@@ -1,12 +1,12 @@
 package com.yl.service;
 
-import com.yl.domain.User;
+import com.yl.domain.Member;
 
 public interface UserService {
 
-	User getUser(Long id);
+	Member getUser(Long id);
 	
-	User getUserByName(String name);
+	Member getUserByName(String name);
 	
 	String  login(String name ,String password);
 	

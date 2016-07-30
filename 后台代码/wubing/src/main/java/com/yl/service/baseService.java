@@ -1,107 +1,63 @@
 package com.yl.service;
 
 
-import java.io.Serializable;
 import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import com.yl.dao.BaseDao;
+import com.yl.domain.BaseEntity;
 
 /**
- * Service - »ùÀà
- * 
- * @author SHOP++ Team
- * @version 3.0
+ * ServiceåŸºç±»
+ * @author ThinkGem
+ * @version 2014-05-16
  */
-public interface baseService<T, ID extends Serializable> {
-
+@Transactional(readOnly = true)
+public abstract class baseService<D extends BaseDao<T>, T extends BaseEntity<T>> {
+	
 	/**
-	 * ²éÕÒÊµÌå¶ÔÏó
-	 * 
+	 * æŒä¹…å±‚å¯¹è±¡
+	 */
+	@Autowired
+	protected D dao;
+	
+	/**
+	 * è·å–å•æ¡æ•°æ®
 	 * @param id
-	 *            ID
-	 * @return ÊµÌå¶ÔÏó£¬Èô²»´æÔÚÔò·µ»Ønull
+	 * @return
 	 */
-	T find(ID id);
-
-	/**
-	 * ²éÕÒËùÓĞÊµÌå¶ÔÏó¼¯ºÏ
-	 * 
-	 * @return ËùÓĞÊµÌå¶ÔÏó¼¯ºÏ
-	 */
-	List<T> findAll();
-
-	/**
-	 * ²éÕÒÊµÌå¶ÔÏó¼¯ºÏ
-	 * 
-	 * @param ids
-	 *            ID
-	 * @return ÊµÌå¶ÔÏó¼¯ºÏ
-	 */
-	List<T> findList(ID... ids);
-
-	/**
-	 * ²éÕÒÊµÌå¶ÔÏó¼¯ºÏ
-	 * 
-	 * @param count
-	 *            ÊıÁ¿
-	 * @param filters
-	 *            É¸Ñ¡
-	 * @param orders
-	 *            ÅÅĞò
-	 * @return ÊµÌå¶ÔÏó¼¯ºÏ
-	 */
+	public T get(String id) {
+		return dao.get(id);
+	}
 	
 	/**
-	 * ±£´æÊµÌå¶ÔÏó
-	 * 
+	 * è·å–å•æ¡æ•°æ®
 	 * @param entity
-	 *            ÊµÌå¶ÔÏó
+	 * @return
 	 */
-	void save(T entity);
-
-	/**
-	 * ¸üĞÂÊµÌå¶ÔÏó
-	 * 
-	 * @param entity
-	 *            ÊµÌå¶ÔÏó
-	 * @return ÊµÌå¶ÔÏó
-	 */
-	T update(T entity);
-
-	/**
-	 * ¸üĞÂÊµÌå¶ÔÏó
-	 * 
-	 * @param entity
-	 *            ÊµÌå¶ÔÏó
-	 * @param ignoreProperties
-	 *            ºöÂÔÊôĞÔ
-	 * @return ÊµÌå¶ÔÏó
-	 */
-	T update(T entity, String... ignoreProperties);
-
-	/**
-	 * É¾³ıÊµÌå¶ÔÏó
-	 * 
-	 * @param id
-	 *            ID
-	 */
-	void delete(ID id);
-
-	/**
-	 * É¾³ıÊµÌå¶ÔÏó
-	 * 
-	 * @param ids
-	 *            ID
-	 */
-	void delete(ID... ids);
-
-	/**
-	 * É¾³ıÊµÌå¶ÔÏó
-	 * 
-	 * @param entity
-	 *            ÊµÌå¶ÔÏó
-	 */
-	void delete(T entity);
+	public T get(T entity) {
+		return dao.get(entity);
+	}
 	
+	/**
+	 * æŸ¥è¯¢åˆ—è¡¨æ•°æ®
+	 * @param entity
+	 * @return
+	 */
+	public List<T> findList(T entity) {
+		return dao.findList(entity);
+	}
 	
+
+
+	
+	/**
+	 * åˆ é™¤æ•°æ®
+	 * @param entity
+	 */
+	@Transactional(readOnly = false)
+	public void delete(T entity) {
+		dao.delete(entity);
+	}
 
 }

@@ -3,33 +3,33 @@ package com.yl.serviceimp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yl.domain.User;
-import com.yl.mapper.TestMapper;
+import com.yl.dao.MemberDao;
+import com.yl.domain.Member;
 import com.yl.service.UserService;
 
 @Service
-public class UserServiceimp implements UserService{
+public class UserServiceimp extends baseServiceimp<Member> implements UserService{
 
 	@Autowired
-	private TestMapper  mapper;
+	private MemberDao  memberMapper;
 
-	public User getUser(Long id) {
+	public Member getUser(Long id) {
 		// TODO Auto-generated method stub
-		return mapper.getUser(id);
+		return memberMapper.getUser(id);
 	}
 
-	public User getUserByName(String name) {
+	public Member getUserByName(String name) {
 		// TODO Auto-generated method stub
-		 return mapper.getUserByName(name);
+		 return memberMapper.getUserByName(name);
 	}
 
 	public String login(String name, String password) {
 		// TODO Auto-generated method stub
-		User user = mapper.getUserByName(name);
-		if (user ==null) {
-			return "’À∫≈√‹¬Î¥ÌŒÛ";
+		Member member = memberMapper.getUserByName(name);
+		if (member ==null) {
+			return "";
 		}
-		if (user.getPasword().equals(password)) {
+		if (member.getPassword().equals(password)) {
 			
 			return "success";
 		} else {
