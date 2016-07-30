@@ -4,7 +4,7 @@ import java.util.Date;
 
 import sun.security.util.BigInt;
 
-public class Member extends BaseEntity {
+public class Member extends BaseEntity<Member> {
 
 	public enum Gender {
 
@@ -66,7 +66,7 @@ public class Member extends BaseEntity {
 	/**失败次数*/
 	private int login_False_Count;
 	
-	/**注册ip*/
+	/**ip*/
 	private String  ip;
 	
 	/**拓展字段1*/
@@ -84,6 +84,9 @@ public class Member extends BaseEntity {
 	/**拓展字段4*/
 	private String attribute_value4;
 
+	private int del_flag;
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -266,6 +269,14 @@ public class Member extends BaseEntity {
 
 	public void setAttribute_value4(String attribute_value4) {
 		this.attribute_value4 = attribute_value4;
+	}
+
+	public int getDel_flag() {
+		return del_flag;
+	}
+
+	public void setDel_flag(int del_flag) {
+		this.del_flag = del_flag;
 	}
 	
 	

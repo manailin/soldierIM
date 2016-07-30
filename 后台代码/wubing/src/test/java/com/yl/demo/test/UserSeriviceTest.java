@@ -4,12 +4,12 @@ import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.yl.service.UserService;
+import com.yl.service.MemberService;
 
 public class UserSeriviceTest extends AbstractSpringTest {
 	
 	@Autowired
-	UserService userService;
+	MemberService userService;
 	@Autowired
 	private DataSource dataSource;
 

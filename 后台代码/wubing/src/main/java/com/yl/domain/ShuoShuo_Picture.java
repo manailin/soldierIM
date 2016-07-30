@@ -8,7 +8,7 @@ import sun.security.util.BigInt;
  * 可能一张图片可能多张图片
  * 
  * */
-public class ShuoShuo_Picture extends BaseEntity{
+public class ShuoShuo_Picture extends BaseEntity<ShuoShuo_Picture>{
 
 	/**说说ID*/
 	private BigInt  shuoshuo_id;

@@ -5,7 +5,7 @@ package com.yl.domain;
  * @author Administrator
  *
  */
-public class Dictionary {
+public class Dictionary extends BaseEntity<Dictionary>{
 	
 
 	/**key*/

@@ -6,7 +6,7 @@ import sun.security.util.BigInt;
  * 
  * 
  * */
-public class Article_Category extends BaseEntity{
+public class Article_Category extends BaseEntity<Article_Category>{
 
 	
 	/**等级*/

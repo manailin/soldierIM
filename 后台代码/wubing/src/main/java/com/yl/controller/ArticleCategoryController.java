@@ -7,20 +7,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yl.domain.Member;
+import com.yl.service.ArticleCategoryService;
+import com.yl.service.ArticleService;
 import com.yl.service.MemberService;
 
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/articleCategory")
+public class ArticleCategoryController {
 
 	@Autowired
-	private  MemberService userService;
+	private  ArticleCategoryService articleCategoryService;
 	
 
-	@RequestMapping(value="/index",method= RequestMethod.GET)
-	public @ResponseBody
-     String login(String name ,String password){
-		
-		return userService.login(name, password);
-	}
+	
 }

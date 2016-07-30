@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.yl.dao.BaseDao;
 import com.yl.domain.BaseEntity;
-import com.yl.service.baseService;
+import com.yl.service.EntityService;
 
 public abstract class baseServiceimp<T>{
 	

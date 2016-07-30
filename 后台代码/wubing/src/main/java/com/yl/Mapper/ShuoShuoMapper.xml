@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yl.dao.ShuoShuoDao">
+	<sql id="ShuoShuoColumns">
+		id,
+		member_id,
+		imgurl,
+		contend,
+		hits,
+		likes,
+		create_Date,
+		modify_Date,
+	</sql>
+	<select id="get" resultType="ShuoShuo" parameterType="long">
+		select
+		<include refid="ShuoShuoColumns" />
+		from t_user where id=#{id}
+	</select>
+	
+	<select id="getUser" resultType="ShuoShuo" parameterType="long">
+		select
+		<include refid="ShuoShuoColumns" />
+		from t_user where id=#{id}
+	</select>
+	
+	<select id="getUserByName" resultType="ShuoShuo" parameterType="String">
+		select
+		<include refid="ShuoShuoColumns" />
+		from t_user where name=#{name}
+	</select>
+	
+		<select id="findAllList" resultType="ShuoShuo">
+		SELECT
+			<include refid="ShuoShuoColumns"/>
+		FROM sys_user a
+		<include refid="userJoins"/>
+		WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+		ORDER BY id
+	</select>
+	
+	
+	<insert id="insert">
+		INSERT INTO sys_user(
+		member_id,
+		imgurl,
+		contend,
+		hits,
+		likes,
+		) VALUES (
+			#{member_id}, 
+			#{imgurl},
+		#{contend},
+		#{hits},
+		#{likes},
+		
+		)
+	</insert>
+	
+	<!-- 更新用户 -->
+	<update id="update">
+		UPDATE sys_user SET 
+			company_id = #{company.id}, 
+			office_id = #{office.id}, 
+			login_name = #{loginName}, 
+			password = #{password}, 
+			no = #{no}, 
+			name = #{name}, 
+			email = #{email}, 
+			phone = #{phone}, 
+			mobile = #{mobile}, 
+			user_type = #{userType}, 
+			update_by = #{updateBy.id}, 
+			update_date = #{updateDate}, 
+			remarks = #{remarks},
+			login_flag = #{loginFlag},
+			photo = #{photo}
+			
+			name== #{name}, 
+			password= #{password}, 
+		email= #{email}, 
+		gender= #{gender}, 
+		birth= #{birth}, 
+		mobile= #{mobile}, 
+		area= #{area}, 
+		member_type= #{member_type}, 
+		pic= #{pic}, 
+		fans= #{fans}, 
+		focus= #{focus}, 
+		help= #{help}, 
+		needHelp= #{needHelp}, 
+		point= #{point}, 
+		is_enable= #{is_enable}, 
+		locked_date= #{locked_date}, 
+		login_False_Count= #{login_False_Count}, 
+		ip= #{ip}, 
+		attribute_value0= #{attribute_value0}, 
+		attribute_value1= #{attribute_value1}, 
+		attribute_value2= #{attribute_value2}, 
+		attribute_value3= #{attribute_value3}, 
+		attribute_value4= #{attribute_value4}, 
+		modify_Date= #{modify_Date}, 
+		WHERE id = #{id}
+	</update>
+	
+		<!-- 更新用户密码 -->
+	<update id="updatePasswordById">
+		UPDATE sys_user SET 
+			password = #{password} 
+		WHERE id = #{id}
+	</update>	
+	
+	<update id="updateLoginInfo">
+		UPDATE sys_user SET 
+			ip = #{ip}, 
+			modify_Date = #{modify_Date} 
+		WHERE id = #{id}
+	</update>
+	
+	
+		<update id="delete">
+		UPDATE sys_user SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

@@ -10,17 +10,12 @@ import com.yl.domain.Member;
 import com.yl.service.MemberService;
 
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/member")
+public class MemberController {
 
 	@Autowired
-	private  MemberService userService;
+	private  MemberService memberService;
 	
 
-	@RequestMapping(value="/index",method= RequestMethod.GET)
-	public @ResponseBody
-     String login(String name ,String password){
-		
-		return userService.login(name, password);
-	}
+
 }

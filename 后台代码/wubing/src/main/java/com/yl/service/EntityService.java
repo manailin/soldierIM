@@ -13,7 +13,7 @@ import com.yl.domain.BaseEntity;
  * @version 2014-05-16
  */
 @Transactional(readOnly = true)
-public abstract class baseService<D extends BaseDao<T>, T extends BaseEntity<T>> {
+public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T>> extends BaseService{
 	
 	/**
 	 * 持久层对象

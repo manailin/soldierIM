@@ -4,7 +4,7 @@ package com.yl.domain;
  * 
  * 
  * */
-public class Log extends BaseEntity{
+public class Log extends BaseEntity<Log>{
 
 	
 	/**内容*/

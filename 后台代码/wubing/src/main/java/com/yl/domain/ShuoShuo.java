@@ -6,7 +6,7 @@ import sun.security.util.BigInt;
  * 
  * 
  */
-public class ShuoShuo extends BaseEntity{
+public class ShuoShuo extends BaseEntity<ShuoShuo>{
 
 	/**发表人*/
 	private Member member_id;

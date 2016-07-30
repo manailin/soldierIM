@@ -2,7 +2,7 @@ package com.yl.service;
 
 import com.yl.domain.Member;
 
-public interface UserService {
+public interface MemberService {
 
 	Member getUser(Long id);
 	

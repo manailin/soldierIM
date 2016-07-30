@@ -8,19 +8,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yl.domain.Member;
 import com.yl.service.MemberService;
+import com.yl.service.ShuoShuoCommentService;
 
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/shuoshuo_comment")
+public class ShuoShuoCommentController {
 
 	@Autowired
-	private  MemberService userService;
+	private  ShuoShuoCommentService shuoShuoCommentService;
 	
 
-	@RequestMapping(value="/index",method= RequestMethod.GET)
-	public @ResponseBody
-     String login(String name ,String password){
-		
-		return userService.login(name, password);
-	}
+
 }

@@ -9,7 +9,7 @@ import sun.security.util.BigInt;
  * @author Administrator
  *
  */
-public class Article extends BaseEntity{
+public class Article extends BaseEntity<Article>{
 
 	
 	/**作者*/

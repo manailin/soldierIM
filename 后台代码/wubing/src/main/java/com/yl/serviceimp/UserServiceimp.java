@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 
 import com.yl.dao.MemberDao;
 import com.yl.domain.Member;
-import com.yl.service.UserService;
+import com.yl.service.MemberService;
 
 @Service
-public class UserServiceimp extends baseServiceimp<Member> implements UserService{
+public class UserServiceimp extends baseServiceimp<Member> implements MemberService{
 
 	@Autowired
 	private MemberDao  memberMapper;

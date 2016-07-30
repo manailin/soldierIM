@@ -7,7 +7,7 @@ import sun.security.util.BigInt;
  * 
  * 
  * */
-public class ShuoShuo_Comment extends BaseEntity{
+public class ShuoShuo_Comment extends BaseEntity<ShuoShuo_Comment>{
 
 	
 	/**说说ID*/
