@@ -2,8 +2,10 @@ package com.yl.service;
 
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.yl.dao.BaseDao;
 import com.yl.domain.BaseEntity;
 
@@ -13,7 +15,7 @@ import com.yl.domain.BaseEntity;
  * @version 2014-05-16
  */
 @Transactional(readOnly = true)
-public abstract class BaseService { 	
+public interface BaseService { 	
 	
-
+	
 }

@@ -2,10 +2,13 @@ package com.yl.service;
 
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.yl.dao.BaseDao;
 import com.yl.domain.BaseEntity;
+import com.yl.service.BaseService;
 
 /**
  * Service基类
@@ -13,7 +16,7 @@ import com.yl.domain.BaseEntity;
  * @version 2014-05-16
  */
 @Transactional(readOnly = true)
-public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T>> extends BaseService{
+public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T>> implements BaseService{
 	
 	/**
 	 * 持久层对象
@@ -49,7 +52,37 @@ public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T
 	}
 	
 
+	/**
+	 * 查询分页数据
+	 * @param page 分页对象
+	 * @param entity
+	 * @return
+	 */
+	public Page<T> findPage(Page<T> page, T entity) {
+		entity.setPage(page);
+		page.setList(dao.findList(entity));
+		return page;
+	}
 
+	/**
+	 * 保存数据（插入或更新）
+	 * @param entity
+	 */
+	@Transactional(readOnly = false)
+	public void save(T entity) {
+
+			dao.insert(entity);
+		
+	}
+	
+	/**
+	 * 更新数据
+	 * @param entity
+	 */
+	@Transactional(readOnly = false)
+	public void update(T entity) {
+		dao.update(entity);
+	}
 	
 	/**
 	 * 删除数据

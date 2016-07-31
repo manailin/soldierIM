@@ -1,7 +1,7 @@
 package com.yl.dao;
 
-import com.yl.domain.Article_Category;
+import com.yl.domain.ArticleCategory;
 
-public interface ArticleCategoryDao extends BaseDao<Article_Category>{
+public interface ArticleCategoryDao extends BaseDao<ArticleCategory>{
 
 }
