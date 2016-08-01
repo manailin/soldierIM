@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.yl.dao.MemberMapper;
+import com.yl.domain.Member;
 
 public class MemberMapperTest extends AbstractSpringTest {
 
@@ -17,11 +18,24 @@ public class MemberMapperTest extends AbstractSpringTest {
 	private DataSource dataSource;
 
 /*	@Test
-	public void testGetUser() throws Exception {
-		System.out.println(testMapper.getUser(1L));
+	public void get() throws Exception {
+		System.out.println(testMapper.get(1L).toString());
 	}*/
-	@Test
-	public void GetUser() throws Exception {
-		System.out.println(testMapper.get(1L));
+	
+/*	@Test
+	public void update() throws Exception {
+		Member member = testMapper.get(1L);
+		member.setName("xiaowang");
+		System.out.println(testMapper.update(member));
 	}
+	*/
+	/*@Test
+	public void delete() throws Exception {
+		System.out.println(testMapper.get(1L).toString());
+	}
+	
+	@Test
+	public void insert() throws Exception {
+		System.out.println(testMapper.get(1L).toString());
+	}*/
 }

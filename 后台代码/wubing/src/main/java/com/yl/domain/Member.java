@@ -278,6 +278,23 @@ public class Member extends BaseEntity<Member> {
 	public void setDel_flag(int del_flag) {
 		this.del_flag = del_flag;
 	}
+
+	@Override
+	public String toString() {
+		return "Member [name=" + name + ", password=" + password + ", email="
+				+ email + ", gender=" + gender + ", birth=" + birth
+				+ ", mobile=" + mobile + ", area=" + area + ", member_type="
+				+ member_type + ", pic=" + pic + ", fans=" + fans + ", focus="
+				+ focus + ", help=" + help + ", needHelp=" + needHelp
+				+ ", point=" + point + ", is_enable=" + is_enable
+				+ ", locked_date=" + locked_date + ", login_False_Count="
+				+ login_False_Count + ", ip=" + ip + ", attribute_value0="
+				+ attribute_value0 + ", attribute_value1=" + attribute_value1
+				+ ", attribute_value2=" + attribute_value2
+				+ ", attribute_value3=" + attribute_value3
+				+ ", attribute_value4=" + attribute_value4 + ", del_flag="
+				+ del_flag + "]";
+	}
 	
 	
 }

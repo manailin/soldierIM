@@ -5,184 +5,89 @@
 
 <mapper namespace="com.yl.dao.MemberMapper">
 	<sql id="memberColumns">
-		id,
-		name,
-		password,
-		email,
-		gender,
-		birth,
-		mobile,
-		area,
-		member_type,
-		pic,
-		fans,
-		focus,
-		help,
-		needHelp,
-		point,
-		is_enable,
-		locked_date;
-		login_False_Count,
-		ip,
-		attribute_value0,
-		attribute_value1,
-		attribute_value2,
-		attribute_value3,
-		attribute_value4,
-		create_Date,
-		modify_Date,
-
+		<!-- A.id, A.name, A.password, A.email, A.gender, A.birth, A.mobile, A.area, 
+			A.member_type, A.pic, A.fans, A.focus, A.help, A.needHelp, A.point, A.is_enable, 
+			A.locked_date; A.login_False_Count, A.ip, A.attribute_value0, A.attribute_value1, 
+			A.attribute_value2, A.attribute_value3, A.attribute_value4, A.create_Date, 
+			A.modify_Date -->
+		*
 	</sql>
 	<select id="get" resultType="Member" parameterType="long">
-		select id,name
-		from t_user where id=#{id}
+		select
+		<include refid="memberColumns" />
+		from lm_member A where id=#{id}
 	</select>
 
 	<select id="getUser" resultType="Member" parameterType="long">
-		select id,name
-		from t_user where id=#{id}
-	</select>
-
-	<!-- <select id="getUserByName" resultType="Member" parameterType="String">
 		select
 		<include refid="memberColumns" />
-		from t_user where name=#{name}
+		from lm_member where id=#{id}
 	</select>
 
+	<select id="getUserByName" resultType="Member" parameterType="String">
+		select
+		<include refid="memberColumns" />
+		from lm_member where name=#{name}
+	</select>
 	<select id="findAllList" resultType="Member">
 		SELECT
-		<include refid="userColumns" />
-		FROM sys_user a
-		<include refid="userJoins" />
+		<include refid="memberColumns" />
+		FROM lm_member a
 		WHERE a.del_flag = #{DEL_FLAG_NORMAL}
 		ORDER BY id
 	</select>
-
-
-	<insert id="insert">
-		INSERT INTO sys_user(
-		name,
-		password,
-		email,
-		gender,
-		birth,
-		mobile,
-		area,
-		member_type,
-		pic,
-		fans,
-		focus,
-		help,
+	<insert id="insert"> INSERT INTO lm_member( name, password,
+		email, gender,
+		birth, mobile, area, member_type, pic, fans, focus, help,
 		needHelp,
-		point,
-		is_enable,
-		locked_date;
-		login_False_Count,
-		ip,
+		point, is_enable, locked_date; login_False_Count, ip,
 		attribute_value0,
-		attribute_value1,
-		attribute_value2,
-		attribute_value3,
-		attribute_value4,
-		)
-		VALUES (
-		#{id},
-		#{name},
-		#{password},
-		#{email},
-		#{gender},
-		#{birth},
+		attribute_value1, attribute_value2, attribute_value3,
+		attribute_value4, )
+		VALUES ( #{id}, #{name}, #{password}, #{email},
+		#{gender}, #{birth},
 		#{mobile},
-		#{area},
-		#{member_type},
-		#{pic},
-		#{fans},
-		#{focus},
-		#{help},
-		#{needHelp},
-		#{point},
-		#{is_enable},
-		#{locked_date};
-		#{login_False_Count},
-		#{ip},
+		#{area}, #{member_type}, #{pic},
+		#{fans}, #{focus}, #{help}, #{needHelp},
+		#{point}, #{is_enable},
+		#{locked_date}; #{login_False_Count}, #{ip},
 		#{attribute_value0},
-		#{attribute_value1},
-		#{attribute_value2},
-		#{attribute_value3},
+		#{attribute_value1}, #{attribute_value2}, #{attribute_value3},
 		#{attribute_value4},
 		)
 	</insert>
-
 	更新用户
 	<update id="update">
-		UPDATE sys_user SET
-		company_id = #{company.id},
-		office_id = #{office.id},
-		login_name = #{loginName},
-		password = #{password},
-		no = #{no},
-		name = #{name},
-		email = #{email},
-		phone = #{phone},
-		mobile = #{mobile},
-		user_type = #{userType},
-		update_by = #{updateBy.id},
-		update_date = #{updateDate},
-		remarks = #{remarks},
-		login_flag = #{loginFlag},
-		photo = #{photo}
-
-		name== #{name},
-		password= #{password},
-		email= #{email},
-		gender= #{gender},
-		birth= #{birth},
-		mobile= #{mobile},
-		area= #{area},
-		member_type= #{member_type},
-		pic=
-		#{pic},
-		fans= #{fans},
-		focus= #{focus},
-		help= #{help},
-		needHelp=
-		#{needHelp},
-		point= #{point},
-		is_enable= #{is_enable},
-		locked_date=
-		#{locked_date},
-		login_False_Count= #{login_False_Count},
-		ip= #{ip},
-		attribute_value0= #{attribute_value0},
-		attribute_value1=
-		#{attribute_value1},
-		attribute_value2= #{attribute_value2},
-		attribute_value3= #{attribute_value3},
-		attribute_value4=
-		#{attribute_value4},
-		modify_Date= #{modify_Date},
+		UPDATE lm_member
+		SET
+		name =#{name},
+		<!-- company_id = #{company.id}, office_id = #{office.id}, login_name = 
+			#{loginName}, password = #{password}, no = #{no}, name =#{name}, email = 
+			#{email}, phone = #{phone}, mobile = #{mobile}, user_type = #{userType}, 
+			update_by = #{updateBy.id}, update_date =#{updateDate}, remarks = #{remarks}, 
+			login_flag = #{loginFlag}, photo =#{photo} name== #{name}, password= #{password}, 
+			email= #{email}, gender= #{gender}, birth= #{birth}, mobile= #{mobile}, area= 
+			#{area}, member_type= #{member_type}, pic= #{pic}, fans= #{fans}, focus= 
+			#{focus}, help= #{help}, needHelp= #{needHelp}, point= #{point}, is_enable= 
+			#{is_enable}, locked_date= #{locked_date}, login_False_Count= #{login_False_Count}, 
+			ip= #{ip}, attribute_value0= #{attribute_value0}, attribute_value1= #{attribute_value1}, 
+			attribute_value2= #{attribute_value2}, attribute_value3= #{attribute_value3}, 
+			attribute_value4= #{attribute_value4}, modify_Date= #{modify_Date}, -->
 		WHERE id = #{id}
 	</update>
-
 	更新用户密码
-	<update id="updatePasswordById">
-		UPDATE sys_user SET
-		password = #{password}
-		WHERE id = #{id}
+	<update id="updatePasswordById"> UPDATE lm_member SET password = #{password}
+		WHERE id
+		=
+		#{id}
 	</update>
-
-	<update id="updateLoginInfo">
-		UPDATE sys_user SET
-		ip = #{ip},
-		modify_Date = #{modify_Date}
-		WHERE id = #{id}
+	<update id="updateLoginInfo"> UPDATE lm_member
+		SET ip = #{ip}, modify_Date =
+		#{modify_Date} WHERE id = #{id}
 	</update>
-
-
-	<update id="delete">
-		UPDATE sys_user SET
-		del_flag = #{DEL_FLAG_DELETE}
-		WHERE id = #{id}
-	</update> -->
+	<update id="delete"> UPDATE lm_member SET del_flag = #{DEL_FLAG_DELETE}
+		WHERE id =
+		#{id}
+	</update>
 
 </mapper>
