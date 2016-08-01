@@ -17,28 +17,28 @@ public class MemberController {
 
 	@Autowired
 	private  MemberService memberService;
-	
+
    @RequestMapping(value="get",method= RequestMethod.GET)
-   public  Member  get(Long  id){
-	   
-	return memberService.get(id);	   
+   public  Member  get(String  id){
+
+	return memberService.get(id);
    }
-   
+
    @RequestMapping(value="insert",method= RequestMethod.POST)
    public  void  insert(Member  member){
-	   
-	  memberService.save(member);	   
+
+	  memberService.save(member);
    }
 
    @RequestMapping(value="update",method= RequestMethod.POST)
    public  void  update(Member  member){
-	   
-	  memberService.update(member);	   
+
+	  memberService.update(member);
    }
-   
+
    @RequestMapping(value="delete",method= RequestMethod.POST)
-   public  void  delete(Long id){
-	   
-	  memberService.delete(id);	   
+   public  void  delete(String id){
+
+	  memberService.delete(id);
    }
 }

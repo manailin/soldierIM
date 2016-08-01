@@ -8,11 +8,11 @@ import com.yl.dao.MemberDao;
 import com.yl.dao.ShuoShuoCommentDao;
 import com.yl.domain.Log;
 import com.yl.domain.Member;
-import com.yl.domain.ShuoShuo_Comment;
+import com.yl.domain.shuoShuoComment;
 
 public class MemberService extends EntityService<MemberDao, Member>{
 
-	
+
 	@Autowired
 	private MemberDao  memberMapper;
 
@@ -23,25 +23,25 @@ public class MemberService extends EntityService<MemberDao, Member>{
 
 	public Member getUserByName(String name) {
 		// TODO Auto-generated method stub
-		 return memberMapper.getUserByName(name);
+		 return (Member) memberMapper.getUserByName(name);
 	}
 
 	public String login(String name, String password) {
 		// TODO Auto-generated method stub
-		Member member = memberMapper.getUserByName(name);
-		if (StringUtils.isNotBlank(name) || StringUtils.isNotBlank(password)) {
+		Member member = (Member) memberMapper.getUserByName(name);
+		if (name ==null || password ==null) {
 			return "帐号或 密码不能为空！";
 		}
 		if (memberMapper.getUserByName(name).size()<1 ) {
 			return "帐号不存在！";
 		}
 		if (member.getPassword().equals(password)) {
-			
+
 			return "success";
 		} else {
-        
+
 		}
 		return "帐号密码错误";
 	}
-	
+
 }

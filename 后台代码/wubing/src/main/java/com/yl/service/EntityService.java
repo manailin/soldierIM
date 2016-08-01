@@ -17,13 +17,13 @@ import com.yl.service.BaseService;
  */
 @Transactional(readOnly = true)
 public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T>> implements BaseService{
-	
+
 	/**
 	 * 持久层对象
 	 */
 	@Autowired
 	protected D dao;
-	
+
 	/**
 	 * 获取单条数据
 	 * @param id
@@ -32,7 +32,7 @@ public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T
 	public T get(String id) {
 		return dao.get(id);
 	}
-	
+
 	/**
 	 * 获取单条数据
 	 * @param entity
@@ -41,7 +41,7 @@ public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T
 	public T get(T entity) {
 		return dao.get(entity);
 	}
-	
+
 	/**
 	 * 查询列表数据
 	 * @param entity
@@ -50,7 +50,7 @@ public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T
 	public List<T> findList(T entity) {
 		return dao.findList(entity);
 	}
-	
+
 
 	/**
 	 * 查询分页数据
@@ -72,9 +72,9 @@ public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T
 	public void save(T entity) {
 
 			dao.insert(entity);
-		
+
 	}
-	
+
 	/**
 	 * 更新数据
 	 * @param entity
@@ -83,7 +83,7 @@ public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T
 	public void update(T entity) {
 		dao.update(entity);
 	}
-	
+
 	/**
 	 * 删除数据
 	 * @param entity
@@ -91,6 +91,15 @@ public abstract class EntityService<D extends BaseDao<T>, T extends BaseEntity<T
 	@Transactional(readOnly = false)
 	public void delete(T entity) {
 		dao.delete(entity);
+	}
+
+	/**
+	 * 删除数据
+	 * @param entity
+	 */
+	@Transactional(readOnly = false)
+	public void delete(String id) {
+		dao.delete(id);
 	}
 
 }

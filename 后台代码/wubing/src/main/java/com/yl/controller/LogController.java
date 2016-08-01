@@ -17,11 +17,11 @@ public class LogController {
 
 	@Autowired
 	private  LogService logService;
-	
+
 	   @RequestMapping(value="insert",method= RequestMethod.POST)
-	   public  Boolean  insert(Log log ){
-		   
-		 return logService.save(log);	   
+	   public  void  insert(Log log ){
+
+		logService.save(log);
 	   }
 
 }

@@ -16,29 +16,29 @@ public class ArticleCategoryController {
 
 	@Autowired
 	private  ArticleCategoryService articleCategoryService;
-	
+
 
 	@RequestMapping(value="get",method= RequestMethod.GET)
-	   public  ArticleCategory  get(Long  id){
-		   
-		return articleCategoryService.get(id);	   
+	   public  ArticleCategory  get(String  id){
+
+		return articleCategoryService.get(id);
 	   }
-	   
+
 	   @RequestMapping(value="insert",method= RequestMethod.POST)
-	   public  Boolean  insert(ArticleCategory  articleCategory){
-		   
-		 return articleCategoryService.save(articleCategory);	   
+	   public  void  insert(ArticleCategory  articleCategory){
+
+		  articleCategoryService.save(articleCategory);
 	   }
 
 	   @RequestMapping(value="update",method= RequestMethod.POST)
-	   public  Boolean  update(ArticleCategory  articleCategory){
-		   
-		 return articleCategoryService.update(articleCategory);	   
+	   public  void  update(ArticleCategory  articleCategory){
+
+		  articleCategoryService.update(articleCategory);
 	   }
-	   
+
 	   @RequestMapping(value="delete",method= RequestMethod.POST)
-	   public  Boolean  delete(Long id){
-		   
-		 return articleCategoryService.delete(id);	   
+	   public  void  delete(String id){
+
+		  articleCategoryService.delete(id);
 	   }
 }
