@@ -4,18 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.yl.domain.ArticleCategory;
-import com.yl.service.ArticleCategoryService;
-import com.yl.service.ArticleService;
+import com.yl.service.imp.ArticleCategoryServiceImpl;
 
 @Controller
 @RequestMapping("/articleCategory")
 public class ArticleCategoryController {
 
 	@Autowired
-	private  ArticleCategoryService articleCategoryService;
+	private  ArticleCategoryServiceImpl articleCategoryService;
 
 
 	@RequestMapping(value="get",method= RequestMethod.GET)

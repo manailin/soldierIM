@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yl.domain.Member;
-import com.yl.service.MemberService;
+import com.yl.service.IMemberService;
+import com.yl.service.imp.MemberServiceImpl;
 
 @Controller
 @RequestMapping("/member/")
 public class MemberController {
 
 	@Autowired
-	private  MemberService memberService;
+	private  MemberServiceImpl memberService;
 
    @RequestMapping(value="get",method= RequestMethod.GET)
    public  Member  get(String  id){

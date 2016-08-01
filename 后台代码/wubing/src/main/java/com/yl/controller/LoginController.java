@@ -7,20 +7,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yl.domain.Member;
-import com.yl.service.MemberService;
+import com.yl.service.IMemberService;
+import com.yl.service.imp.MemberServiceImpl;
 
 @Controller
 @RequestMapping("/login")
 public class LoginController {
 
 	@Autowired
-	private  MemberService userService;
-	
+	private  MemberServiceImpl userService;
+
 
 	@RequestMapping(value="/index",method= RequestMethod.GET)
 	public @ResponseBody
      String login(String name ,String password){
-		
+
 		return userService.login(name, password);
 	}
 }

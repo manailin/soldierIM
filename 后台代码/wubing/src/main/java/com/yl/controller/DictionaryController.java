@@ -4,15 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.yl.domain.Dictionary;
-import com.yl.service.DictionaryService;
+import com.yl.service.IDictionaryService;
+import com.yl.service.imp.DictionaryServiceImpl;
 
 @Controller
 @RequestMapping("/dictionary")
 public class DictionaryController {
 
 	@Autowired
-	private  DictionaryService dictionnaryService;
+	private  DictionaryServiceImpl dictionnaryService;
 
 
 	@RequestMapping(value="get",method= RequestMethod.GET)

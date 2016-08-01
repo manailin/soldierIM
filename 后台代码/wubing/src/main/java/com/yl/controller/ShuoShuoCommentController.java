@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yl.domain.shuoShuoComment;
-import com.yl.service.ShuoShuoCommentService;
+import com.yl.service.IShuoShuoCommentService;
+import com.yl.service.imp.ShuoShuoCommentServiceImpl;
 
 @Controller
 @RequestMapping("/shuoshuo_comment")
 public class ShuoShuoCommentController {
 
 	@Autowired
-	private  ShuoShuoCommentService shuoShuoCommentService;
+	private  ShuoShuoCommentServiceImpl shuoShuoCommentService;
 
 	 @RequestMapping(value="get",method= RequestMethod.GET)
 	   public  shuoShuoComment  get(String  id){

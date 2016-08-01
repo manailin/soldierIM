@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yl.domain.Article;
-import com.yl.service.ArticleService;
+import com.yl.service.imp.ArticleServiceImpl;
 
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
 
 	@Autowired
-	private  ArticleService articleService;
+	private  ArticleServiceImpl articleService;
 
 
 	 @RequestMapping(value="get",method= RequestMethod.GET)

@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yl.domain.ShuoShuo;
-import com.yl.service.ShuoShuoService;
+import com.yl.service.IShuoShuoService;
+import com.yl.service.imp.ShuoShuoServiceImpl;
 
 @Controller
 @RequestMapping("/shuoshuo")
 public class ShuoShuoController {
 
 	@Autowired
-	private  ShuoShuoService shuoShuoService;
+	private  ShuoShuoServiceImpl shuoShuoService;
 
 	@RequestMapping(value="get",method= RequestMethod.GET)
 	   public  ShuoShuo  get(String  id){

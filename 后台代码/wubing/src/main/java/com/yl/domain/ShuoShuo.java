@@ -3,23 +3,23 @@ package com.yl.domain;
 import sun.security.util.BigInt;
 
 /**发表说说类
- * 
- * 
+ *
+ *
  */
 public class ShuoShuo extends BaseEntity<ShuoShuo>{
 
 	/**发表人*/
 	private Member member_id;
-	
+
 	/**说说第一张图地址*/
 	private String  imgurl;
-	
+
 	/**发表的说说内容*/
-    private  String contend;
-    
+    private  String content;
+
     /**点击次数-浏览次数*/
     private  BigInt  hits;
-    
+
     /**点赞次数*/
     private BigInt   likes;
 
@@ -39,12 +39,12 @@ public class ShuoShuo extends BaseEntity<ShuoShuo>{
 		this.imgurl = imgurl;
 	}
 
-	public String getContend() {
-		return contend;
+	public String getContent() {
+		return content;
 	}
 
-	public void setContend(String contend) {
-		this.contend = contend;
+	public void setContend(String content) {
+		this.content = content;
 	}
 
 	public BigInt getHits() {
@@ -62,11 +62,11 @@ public class ShuoShuo extends BaseEntity<ShuoShuo>{
 	public void setLikes(BigInt likes) {
 		this.likes = likes;
 	}
-    
-    
-    
-    
-    
+
+
+
+
+
 
 
 
