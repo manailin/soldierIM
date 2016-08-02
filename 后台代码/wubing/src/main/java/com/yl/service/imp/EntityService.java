@@ -100,8 +100,8 @@ public abstract  class EntityService<D extends BaseMapper<T>, T extends BaseEnti
 	 * @param entity
 	 */
 	@Transactional(readOnly = false)
-	public void delete(String id) {
-		dao.delete(id);
+	public void delete(Long id) {
+		dao.deleteById(id);
 	}
 
 }

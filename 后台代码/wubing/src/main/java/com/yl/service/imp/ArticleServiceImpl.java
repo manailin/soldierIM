@@ -1,5 +1,7 @@
 package com.yl.service.imp;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.yl.dao.ArticleMapper;
@@ -46,6 +48,12 @@ public class ArticleServiceImpl implements IArticleService{
 	public void update(Article entity) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<Article> findAllList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

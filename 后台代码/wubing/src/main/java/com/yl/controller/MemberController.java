@@ -1,6 +1,8 @@
 package com.yl.controller;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,29 +19,47 @@ import com.yl.service.imp.MemberServiceImpl;
 public class MemberController {
 
 	@Autowired
-	private  MemberServiceImpl memberService;
+	private MemberServiceImpl memberService;
 
-   @RequestMapping(value="get",method= RequestMethod.GET)
-   public  Member  get(String  id){
 
-	return memberService.get(id);
-   }
+	/*测试可用
+	 * 实例：http://localhost/dem01/member/get.json?id=3
+	 * */
+	@RequestMapping(value = "get.json", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> get(Long id) {
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("date", memberService.get(id));
+		return data;
+	}
 
-   @RequestMapping(value="insert",method= RequestMethod.POST)
-   public  void  insert(Member  member){
+	@RequestMapping(value = "insert.json", method = RequestMethod.POST)
+	public void insert(Member member) {
 
-	  memberService.save(member);
-   }
+		memberService.save(member);
+	}
 
-   @RequestMapping(value="update",method= RequestMethod.POST)
-   public  void  update(Member  member){
+	@RequestMapping(value = "update.json", method = RequestMethod.POST)
+	public void update(Member member) {
 
-	  memberService.update(member);
-   }
+		memberService.update(member);
+	}
 
-   @RequestMapping(value="delete",method= RequestMethod.POST)
-   public  void  delete(String id){
+	/*测试可用
+	 * 实例：http://localhost/dem01/member/delete.json?id=3
+	 * */
+	@RequestMapping(value = "delete.json", method = RequestMethod.POST)
+	public void delete(Long id) {
 
-	  memberService.delete(id);
-   }
+		memberService.delete(id);
+	}
+
+	@RequestMapping(value = "list.json", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> list(String id) {
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("date", memberService.findAllList());
+		return data;
+
+	}
 }

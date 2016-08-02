@@ -1,5 +1,7 @@
 package com.yl.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +51,12 @@ public class ShuoShuoServiceImpl implements IShuoShuoService{
 	public void update(ShuoShuo entity) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<ShuoShuo> findAllList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

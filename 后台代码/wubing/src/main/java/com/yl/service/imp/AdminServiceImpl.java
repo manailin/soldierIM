@@ -1,5 +1,7 @@
 package com.yl.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -18,7 +20,7 @@ public class AdminServiceImpl implements IAdminService{
 	@Autowired
 	private AdminMapper  adminMapper;
 
-	public Admin get(Admin entity) {
+	public Admin get() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -33,12 +35,12 @@ public class AdminServiceImpl implements IAdminService{
 		return null;
 	}
 
-	public void save(Admin entity) {
+	public void save() {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void delete(Admin entity) {
+	public void delete() {
 		// TODO Auto-generated method stub
 
 	}
@@ -48,6 +50,36 @@ public class AdminServiceImpl implements IAdminService{
 
 	}
 
+	public void update() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Admin> findAllList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Admin get(Admin entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(Admin entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Admin entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
 	public void update(Admin entity) {
 		// TODO Auto-generated method stub
 

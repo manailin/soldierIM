@@ -40,13 +40,13 @@ public interface BaseMapper<T>{
 	 */
 	public List<T> findAllList(T entity);
 
+
+	public List<T> findAll();
 	/**
 	 * 查询所有数据列表
 	 * @see public List<T> findAllList(T entity)
 	 * @return
 	 */
-	@Deprecated
-	public List<T> findAllList();
 
 	/**
 	 * 插入数据
@@ -62,14 +62,6 @@ public interface BaseMapper<T>{
 	 */
 	public int update(T entity);
 
-	/**
-	 * 删除数据（一般为逻辑删除，更新del_flag字段为1）
-	 * @param id
-	 * @see public int delete(T entity)
-	 * @return
-	 */
-	@Deprecated
-	public int delete(String id);
 
 	/**
 	 * 删除数据（一般为逻辑删除，更新del_flag字段为1）
@@ -78,4 +70,6 @@ public interface BaseMapper<T>{
 	 */
 	public int delete(T entity);
 
+
+	public int deleteById(Long id);
 }

@@ -1,5 +1,7 @@
 package com.yl.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -58,17 +60,27 @@ public class MemberServiceImpl implements IMemberService{
 
 	public Member get(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return memberMapper.get(id);
 	}
 
 	public void save(Member entity) {
 		// TODO Auto-generated method stub
-
+		memberMapper.insert(entity);
 	}
 
 	public void delete(Member entity) {
 		// TODO Auto-generated method stub
+		memberMapper.delete(entity);
+	}
 
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		memberMapper.deleteById(id);
+	}
+
+	public void update(Member entity) {
+		// TODO Auto-generated method stub
+		memberMapper.delete(entity);
 	}
 
 	public void delete(String id) {
@@ -76,9 +88,10 @@ public class MemberServiceImpl implements IMemberService{
 
 	}
 
-	public void update(Member entity) {
+	@Override
+	public List<Member> findAllList() {
 		// TODO Auto-generated method stub
-
+		return memberMapper.findAll();
 	}
 
 

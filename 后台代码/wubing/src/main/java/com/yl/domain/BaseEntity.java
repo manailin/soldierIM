@@ -12,19 +12,19 @@ import sun.security.util.BigInt;
 public class BaseEntity<T> {
 
 	/**ID*/
-	private BigInt id;
-	
+	private Long id;
+
 	/**创建时间*/
 	private Date create_Date;
-	
+
 	/**修改时间*/
 	private Date modify_Date;
-	
-	
-	public BigInt getId() {
+
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(BigInt id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Date getCreate_Date() {
@@ -39,10 +39,10 @@ public class BaseEntity<T> {
 	public void setModify_Date(Date modify_Date) {
 		this.modify_Date = modify_Date;
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 }

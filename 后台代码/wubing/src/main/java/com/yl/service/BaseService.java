@@ -30,4 +30,7 @@ public interface BaseService<D extends BaseMapper<T>, T extends BaseEntity<T>> {
 	public void delete(String id);
 
 	public void update(T entity);
+
+	public List<T> findAllList();
+
 }

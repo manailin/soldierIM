@@ -5,12 +5,7 @@
 
 <mapper namespace="com.yl.dao.MemberMapper">
 	<sql id="memberColumns">
-		 A.id, A.name, A.password, A.email, A.gender, A.birth, A.mobile, A.area,
-			A.member_type, A.pic, A.fans, A.focus, A.help, A.needHelp, A.point, A.is_enable,
-			A.locked_date; A.login_False_Count, A.ip, A.attribute_value0, A.attribute_value1,
-			A.attribute_value2, A.attribute_value3, A.attribute_value4, A.create_Date,
-			A.modify_Date
-
+		A.id, A.name
 	</sql>
 	<select id="get" resultType="Member" parameterType="long">
 		select
@@ -29,38 +24,35 @@
 		<include refid="memberColumns" />
 		from lm_member where name=#{name}
 	</select>
-	<select id="findAllList" resultType="Member">
+	<select id="findAllList" resultType="Member" parameterType="com.yl.domain.Member">
 		SELECT
 		<include refid="memberColumns" />
-		FROM lm_member a
-		WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+		FROM lm_member A
 		ORDER BY id
 	</select>
-	<insert id="insert"> INSERT INTO lm_member( name, password,
-		email, gender,
-		birth, mobile, area, member_type, pic, fans, focus, help,
-		needHelp,
-		point, is_enable, locked_date; login_False_Count, ip,
-		attribute_value0,
-		attribute_value1, attribute_value2, attribute_value3,
-		attribute_value4, )
-		VALUES ( #{id}, #{name}, #{password}, #{email},
-		#{gender}, #{birth},
-		#{mobile},
-		#{area}, #{member_type}, #{pic},
-		#{fans}, #{focus}, #{help}, #{needHelp},
-		#{point}, #{is_enable},
-		#{locked_date}; #{login_False_Count}, #{ip},
-		#{attribute_value0},
-		#{attribute_value1}, #{attribute_value2}, #{attribute_value3},
-		#{attribute_value4},
+		<select id="findAll" resultType="Member" >
+		SELECT
+		<include refid="memberColumns" />
+		from lm_member A
+	</select>
+	<insert id="insert" parameterType="com.yl.domain.Member">
+		INSERT INTO lm_member( name<!-- , password, email, gender, birth, mobile,
+			area, member_type, pic, fans, focus, help, needHelp, point, is_enable, locked_date;
+			login_False_Count, ip, attribute_value0, attribute_value1, attribute_value2,
+			attribute_value3, attribute_value4, -->
+		)
+		VALUES ( #{name}<!-- , #{password}, #{email}, #{gender}, #{birth}, #{mobile},
+			#{area}, #{member_type}, #{pic}, #{fans}, #{focus}, #{help}, #{needHelp},
+			#{point}, #{is_enable}, #{locked_date}; #{login_False_Count}, #{ip}, #{attribute_value0},
+			#{attribute_value1}, #{attribute_value2}, #{attribute_value3}, #{attribute_value4
+			}, -->
 		)
 	</insert>
 
-	<update id="update">
+	<update id="update" parameterType="com.yl.domain.Member">
 		UPDATE lm_member
 		SET
-		name =#{name},
+		name =#{name}
 		<!-- company_id = #{company.id}, office_id = #{office.id}, login_name =
 			#{loginName}, password = #{password}, no = #{no}, name =#{name}, email =
 			#{email}, phone = #{phone}, mobile = #{mobile}, user_type = #{userType},
@@ -73,7 +65,7 @@
 			ip= #{ip}, attribute_value0= #{attribute_value0}, attribute_value1= #{attribute_value1},
 			attribute_value2= #{attribute_value2}, attribute_value3= #{attribute_value3},
 			attribute_value4= #{attribute_value4}, modify_Date= #{modify_Date}, -->
-		WHERE id = #{id}
+		WHERE id =#{id}
 	</update>
 
 	<update id="updatePasswordById"> UPDATE lm_member SET password = #{password}
@@ -85,9 +77,14 @@
 		SET ip = #{ip}, modify_Date =
 		#{modify_Date} WHERE id = #{id}
 	</update>
-	<update id="delete"> UPDATE lm_member SET del_flag = #{DEL_FLAG_DELETE}
+	<update id="delete" parameterType="com.yl.domain.Member">
+		delete from lm_member
 		WHERE id =
 		#{id}
 	</update>
-
+	<update id="deleteById" parameterType="Long">
+		delete from lm_member
+		WHERE id =
+		#{id}
+	</update>
 </mapper>

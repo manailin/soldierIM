@@ -1,5 +1,7 @@
 package com.yl.service.imp;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.yl.dao.BaseMapper;
@@ -46,6 +48,12 @@ public class LogServiceImpl implements ILogService{
 	public void update(Log entity) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<Log> findAllList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

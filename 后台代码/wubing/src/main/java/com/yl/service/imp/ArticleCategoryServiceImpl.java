@@ -1,5 +1,7 @@
 package com.yl.service.imp;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.yl.dao.ArticleCategoryMapper;
@@ -47,6 +49,12 @@ public class ArticleCategoryServiceImpl implements IArticleCategoryService{
 	public void update(ArticleCategory entity) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<ArticleCategory> findAllList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

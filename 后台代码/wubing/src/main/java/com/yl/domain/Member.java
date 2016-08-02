@@ -62,31 +62,31 @@ public class Member extends BaseEntity<Member> {
 
 	/**锁定时间*/
 	private Date  locked_date;
-	
+
 	/**失败次数*/
 	private int login_False_Count;
-	
+
 	/**ip*/
 	private String  ip;
-	
+
 	/**拓展字段1*/
 	private String attribute_value0;
-	
+
 	/**拓展字段2*/
 	private String attribute_value1;
-	
+
 	/**拓展字段3*/
 	private String attribute_value2;
-	
+
 	/**拓展字段4*/
 	private String attribute_value3;
-	
+
 	/**拓展字段4*/
 	private String attribute_value4;
 
 	private int del_flag;
-	
-	
+
+
 	public String getName() {
 		return name;
 	}
@@ -295,6 +295,6 @@ public class Member extends BaseEntity<Member> {
 				+ ", attribute_value4=" + attribute_value4 + ", del_flag="
 				+ del_flag + "]";
 	}
-	
-	
+
+
 }

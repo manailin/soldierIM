@@ -1,5 +1,7 @@
 package com.yl.service.imp;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.yl.dao.BaseMapper;
@@ -46,6 +48,12 @@ public class ShuoShuoCommentServiceImpl implements IShuoShuoCommentService{
 	public void update(shuoShuoComment entity) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<shuoShuoComment> findAllList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
