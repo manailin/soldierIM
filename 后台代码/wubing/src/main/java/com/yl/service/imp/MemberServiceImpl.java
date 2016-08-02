@@ -46,29 +46,29 @@ public class MemberServiceImpl implements IMemberService{
 		return "帐号密码错误";
 	}
 
-	@Override
 	public Member get(Member entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	public Member get(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-	@Override
+	public Member get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void save(Member entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void delete(Member entity) {
 		// TODO Auto-generated method stub
-		memberMapper.delete(entity);
-	}
 
-	@Override
-	public void update(Member entity) {
-		// TODO Auto-generated method stub
-		memberMapper.update(entity);
 	}
 
 	public void delete(String id) {
@@ -76,16 +76,11 @@ public class MemberServiceImpl implements IMemberService{
 
 	}
 
-	@Override
-	public Member get(String id) {
+	public void update(Member entity) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
-	@Override
-	public Member get(Long id) {
-		// TODO Auto-generated method stub
-		return memberMapper.get(id);
-	}
+
 
 }

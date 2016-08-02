@@ -16,32 +16,27 @@ public class ShuoShuoServiceImpl implements IShuoShuoService{
 	@Autowired
 	private ShuoShuoMapper shuoShuoMapper;
 
-	@Override
 	public ShuoShuo get(ShuoShuo entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ShuoShuo get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	public ShuoShuo get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void save(ShuoShuo entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void delete(ShuoShuo entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(ShuoShuo entity) {
 		// TODO Auto-generated method stub
 
 	}
@@ -51,11 +46,12 @@ public class ShuoShuoServiceImpl implements IShuoShuoService{
 
 	}
 
-	@Override
-	public ShuoShuo get(Long id) {
+	public void update(ShuoShuo entity) {
 		// TODO Auto-generated method stub
-		return shuoShuoMapper.get(id);
+
 	}
+
+
 
 
 

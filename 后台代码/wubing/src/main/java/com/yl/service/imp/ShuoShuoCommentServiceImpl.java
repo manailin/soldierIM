@@ -13,46 +13,39 @@ import com.yl.service.IShuoShuoCommentService;
 @Service
 public class ShuoShuoCommentServiceImpl implements IShuoShuoCommentService{
 
-	@Override
 	public shuoShuoComment get(shuoShuoComment entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public shuoShuoComment get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	public shuoShuoComment get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void save(shuoShuoComment entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void delete(shuoShuoComment entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
-	public void update(shuoShuoComment entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void delete(String id) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
-	public shuoShuoComment get(Long id) {
+	public void update(shuoShuoComment entity) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 

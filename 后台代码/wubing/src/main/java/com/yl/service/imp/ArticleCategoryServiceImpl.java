@@ -14,47 +14,41 @@ import com.yl.service.IArticleCategoryService;
 @Service
 public class ArticleCategoryServiceImpl implements IArticleCategoryService{
 
-	@Override
 	public ArticleCategory get(ArticleCategory entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ArticleCategory get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	public ArticleCategory get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void save(ArticleCategory entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void delete(ArticleCategory entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+
+	}
+
 	public void update(ArticleCategory entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
-	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ArticleCategory get(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 

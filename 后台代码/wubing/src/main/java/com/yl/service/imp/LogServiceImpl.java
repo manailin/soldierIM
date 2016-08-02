@@ -13,48 +13,40 @@ import com.yl.service.ILogService;
 @Service
 public class LogServiceImpl implements ILogService{
 
-	@Override
 	public Log get(Log entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Log get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void save(Log entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(Log entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(Log entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(String id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public Log get(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	public void save(Log entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(Log entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void update(Log entity) {
+		// TODO Auto-generated method stub
+
+	}
 
 
 }

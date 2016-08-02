@@ -13,48 +13,40 @@ import com.yl.service.IDictionaryService;
 @Service
 public class DictionaryServiceImpl implements IDictionaryService{
 
-	@Override
 	public Dictionary get(Dictionary entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Dictionary get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void save(Dictionary entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(Dictionary entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(Dictionary entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public Dictionary get(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	public void save(Dictionary entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(Dictionary entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void update(Dictionary entity) {
+		// TODO Auto-generated method stub
+
+	}
 
 
 

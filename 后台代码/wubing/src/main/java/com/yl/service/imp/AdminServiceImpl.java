@@ -18,31 +18,29 @@ public class AdminServiceImpl implements IAdminService{
 	@Autowired
 	private AdminMapper  adminMapper;
 
-
-
-	@Override
 	public Admin get(Admin entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	public Admin get(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-	@Override
+	public Admin get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void save(Admin entity) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void delete(Admin entity) {
 		// TODO Auto-generated method stub
-		adminMapper.delete(entity);
-	}
 
-	@Override
-	public void update(Admin entity) {
-		// TODO Auto-generated method stub
-		adminMapper.update(entity);
 	}
 
 	public void delete(String id) {
@@ -50,16 +48,12 @@ public class AdminServiceImpl implements IAdminService{
 
 	}
 
-	@Override
-	public Admin get(String id) {
+	public void update(Admin entity) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
-	@Override
-	public Admin get(Long id) {
-		// TODO Auto-generated method stub
-		return adminMapper.get(id);
-	}
+
+
 
 }
