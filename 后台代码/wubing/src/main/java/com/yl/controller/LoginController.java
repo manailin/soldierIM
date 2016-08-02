@@ -1,5 +1,7 @@
 package com.yl.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +20,9 @@ public class LoginController {
 	private  MemberServiceImpl userService;
 
 
-	@RequestMapping(value="/index",method= RequestMethod.GET)
+	@RequestMapping(value="/check.json",method= RequestMethod.GET)
 	public @ResponseBody
-     String login(String name ,String password){
+     Map<String, Object> login(String name ,String password){
 
 		return userService.login(name, password);
 	}

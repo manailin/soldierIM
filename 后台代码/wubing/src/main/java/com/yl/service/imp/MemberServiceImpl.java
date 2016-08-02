@@ -1,6 +1,8 @@
 package com.yl.service.imp;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,14 +13,15 @@ import com.yl.dao.MemberMapper;
 import com.yl.dao.ShuoShuoCommentMapper;
 import com.yl.domain.Log;
 import com.yl.domain.Member;
+import com.yl.domain.ShuoShuo;
 import com.yl.domain.shuoShuoComment;
 import com.yl.service.IMemberService;
-@Service
-public class MemberServiceImpl implements IMemberService{
 
+@Service
+public class MemberServiceImpl implements IMemberService {
 
 	@Autowired
-	private MemberMapper  memberMapper;
+	private MemberMapper memberMapper;
 
 	public Member getUser(Long id) {
 		// TODO Auto-generated method stub
@@ -27,25 +30,29 @@ public class MemberServiceImpl implements IMemberService{
 
 	public Member getUserByName(String name) {
 		// TODO Auto-generated method stub
-		 return (Member) memberMapper.getUserByName(name);
+		return (Member) memberMapper.getUserByName(name);
 	}
 
-	public String login(String name, String password) {
+	public Map<String, Object> login(String name, String password) {
+		Map<String, Object> data = new HashMap<String, Object>();
+
 		// TODO Auto-generated method stub
 		Member member = (Member) memberMapper.getUserByName(name);
-		if (name ==null || password ==null) {
-			return "帐号或 密码不能为空！";
+		if (name == null || password == null) {
+			data.put("date", "帐号或 密码不能为空！");
 		}
-		if (memberMapper.getUserByName(name).size()<1 ) {
-			return "帐号不存在！";
+		if (memberMapper.getUserByName(name).size() < 1) {
+			data.put("date", "帐号或 密码不能为空！");
+
 		}
 		if (member.getPassword().equals(password)) {
-
-			return "success";
+			data.put("date", "帐号或 密码不能为空！");
 		} else {
 
 		}
-		return "帐号密码错误";
+		data.put("date", "帐号密码错误！");
+
+		return data;
 	}
 
 	public Member get(Member entity) {
@@ -88,12 +95,14 @@ public class MemberServiceImpl implements IMemberService{
 
 	}
 
-	@Override
 	public List<Member> findAllList() {
 		// TODO Auto-generated method stub
 		return memberMapper.findAll();
 	}
 
-
+	public List<ShuoShuo> getShuoShuoList(Long id) {
+		// TODO Auto-generated method stub
+		return memberMapper.getShuoShuoList(id) ;
+	}
 
 }

@@ -19,7 +19,7 @@ public class LogController {
 	@Autowired
 	private  LogServiceImpl logService;
 
-	   @RequestMapping(value="insert",method= RequestMethod.POST)
+	   @RequestMapping(value="/insert",method= RequestMethod.POST)
 	   public  void  insert(Log log ){
 
 		logService.save(log);

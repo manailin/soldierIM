@@ -19,7 +19,7 @@ public class MemberMapperTest extends AbstractSpringTest {
 
 	@Test
 	public void get() throws Exception {
-		System.out.println(testMapper.get(1L).toString());
+		System.out.println(testMapper.get(3L).toString());
 	}
 
 /*	@Test

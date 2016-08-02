@@ -32,7 +32,7 @@ public class AdminServiceImpl implements IAdminService{
 
 	public Admin get(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return adminMapper.get(id);
 	}
 
 	public void save() {
@@ -58,7 +58,7 @@ public class AdminServiceImpl implements IAdminService{
 	@Override
 	public List<Admin> findAllList() {
 		// TODO Auto-generated method stub
-		return null;
+		return adminMapper.findAll();
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class AdminServiceImpl implements IAdminService{
 	@Override
 	public void update(Admin entity) {
 		// TODO Auto-generated method stub
-
+		adminMapper.update(entity);
 	}
 
 

@@ -15,25 +15,25 @@ public class ArticleCategoryController {
 	private  ArticleCategoryServiceImpl articleCategoryService;
 
 
-	@RequestMapping(value="get",method= RequestMethod.GET)
+	@RequestMapping(value="/get",method= RequestMethod.GET)
 	   public  ArticleCategory  get(String  id){
 
 		return articleCategoryService.get(id);
 	   }
 
-	   @RequestMapping(value="insert",method= RequestMethod.POST)
+	   @RequestMapping(value="/insert",method= RequestMethod.POST)
 	   public  void  insert(ArticleCategory  articleCategory){
 
 		  articleCategoryService.save(articleCategory);
 	   }
 
-	   @RequestMapping(value="update",method= RequestMethod.POST)
+	   @RequestMapping(value="/update",method= RequestMethod.POST)
 	   public  void  update(ArticleCategory  articleCategory){
 
 		  articleCategoryService.update(articleCategory);
 	   }
 
-	   @RequestMapping(value="delete",method= RequestMethod.POST)
+	   @RequestMapping(value="/delete",method= RequestMethod.POST)
 	   public  void  delete(String id){
 
 		  articleCategoryService.delete(id);

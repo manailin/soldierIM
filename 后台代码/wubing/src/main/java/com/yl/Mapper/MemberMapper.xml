@@ -5,24 +5,45 @@
 
 <mapper namespace="com.yl.dao.MemberMapper">
 	<sql id="memberColumns">
-		A.id, A.name
+		A.id,
+		A.name
 	</sql>
+	<sql id="shuoshuoColumns">
+		r.id ,
+		r.member_id
+		r.imgurl,
+		r.content,
+		r.hits,
+		r.likes,
+		r.create_Date,
+		r.modify_Date
+
+	</sql>
+
+	<sql id="shuoshuoJoins">
+		left JOIN lm_shuoshuo r on A.id = r.member_id
+	</sql>
+
+
 	<select id="get" resultType="Member" parameterType="long">
 		select
 		<include refid="memberColumns" />
-		from lm_member A where id=#{id}
+		from lm_member A
+		where id=#{id}
 	</select>
 
 	<select id="getUser" resultType="Member" parameterType="long">
 		select
 		<include refid="memberColumns" />
-		from lm_member where id=#{id}
+		from lm_member A
+		where id=#{id}
 	</select>
 
 	<select id="getUserByName" resultType="Member" parameterType="String">
 		select
 		<include refid="memberColumns" />
-		from lm_member where name=#{name}
+		from lm_member A
+		where name=#{name}
 	</select>
 	<select id="findAllList" resultType="Member" parameterType="com.yl.domain.Member">
 		SELECT
@@ -30,7 +51,17 @@
 		FROM lm_member A
 		ORDER BY id
 	</select>
-		<select id="findAll" resultType="Member" >
+
+	<select id="getShuoShuoList" resultType="ShuoShuo">
+		select
+		<include refid="shuoshuoColumns" />
+		from lm_member A
+		<include refid="shuoshuoJoins" />
+		where A.id=#{id}
+	</select>
+
+
+	<select id="findAll" resultType="Member">
 		SELECT
 		<include refid="memberColumns" />
 		from lm_member A
@@ -79,7 +110,8 @@
 	</update>
 	<update id="delete" parameterType="com.yl.domain.Member">
 		delete from lm_member
-		WHERE id =
+		WHERE id
+		=
 		#{id}
 	</update>
 	<update id="deleteById" parameterType="Long">

@@ -62,4 +62,14 @@ public class MemberController {
 		return data;
 
 	}
+
+
+	   @RequestMapping(value = "shuoShuolist.json", method = RequestMethod.POST)
+			@ResponseBody
+			public Map<String, Object> list(Long id) {
+				Map<String, Object> data = new HashMap<String, Object>();
+				data.put("date", memberService.getShuoShuoList(id));
+				return data;
+
+			}
 }

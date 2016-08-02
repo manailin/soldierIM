@@ -16,25 +16,25 @@ public class ShuoShuoCommentController {
 	@Autowired
 	private  ShuoShuoCommentServiceImpl shuoShuoCommentService;
 
-	 @RequestMapping(value="get",method= RequestMethod.GET)
+	 @RequestMapping(value="/get",method= RequestMethod.GET)
 	   public  shuoShuoComment  get(String  id){
 
 		return shuoShuoCommentService.get(id);
 	   }
 
-	   @RequestMapping(value="insert",method= RequestMethod.POST)
+	   @RequestMapping(value="/insert",method= RequestMethod.POST)
 	   public  void  insert(shuoShuoComment  shuoShuoComment){
 
 		 shuoShuoCommentService.save(shuoShuoComment);
 	   }
 
-	   @RequestMapping(value="update",method= RequestMethod.POST)
+	   @RequestMapping(value="/update",method= RequestMethod.POST)
 	   public  void  update(shuoShuoComment  shuoShuoComment){
 
 		shuoShuoCommentService.update(shuoShuoComment);
 	   }
 
-	   @RequestMapping(value="delete",method= RequestMethod.POST)
+	   @RequestMapping(value="/delete",method= RequestMethod.POST)
 	   public  void  delete(String id){
 
 		  shuoShuoCommentService.delete(id);

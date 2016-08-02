@@ -10,6 +10,7 @@ import com.yl.dao.ShuoShuoMapper;
 import com.yl.domain.BaseEntity;
 import com.yl.domain.Member;
 import com.yl.domain.ShuoShuo;
+import com.yl.domain.shuoShuoComment;
 import com.yl.service.IShuoShuoService;
 @Service
 public class ShuoShuoServiceImpl implements IShuoShuoService{
@@ -30,7 +31,7 @@ public class ShuoShuoServiceImpl implements IShuoShuoService{
 
 	public ShuoShuo get(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return shuoShuoMapper.get(id);
 	}
 
 	public void save(ShuoShuo entity) {
@@ -57,6 +58,17 @@ public class ShuoShuoServiceImpl implements IShuoShuoService{
 	public List<ShuoShuo> findAllList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<ShuoShuo> getList(Long memberId) {
+		// TODO Auto-generated method stub
+		return shuoShuoMapper.getList(memberId);
+	}
+
+	public List<shuoShuoComment> findAllCommentList(Long shuoShuoID) {
+		// TODO Auto-generated method stub
+		return shuoShuoMapper.findAllCommentList(shuoShuoID);
 	}
 
 
