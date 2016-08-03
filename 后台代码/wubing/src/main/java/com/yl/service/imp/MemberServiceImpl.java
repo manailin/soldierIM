@@ -28,25 +28,23 @@ public class MemberServiceImpl implements IMemberService {
 		return memberMapper.getUser(id);
 	}
 
-	public Member getUserByName(String name) {
+	public List<Member> getUserByName(String name) {
 		// TODO Auto-generated method stub
-		return (Member) memberMapper.getUserByName(name);
+		return memberMapper.getUserByName(name);
 	}
 
 	public Map<String, Object> login(String name, String password) {
 		Map<String, Object> data = new HashMap<String, Object>();
 
 		// TODO Auto-generated method stub
-		Member member = (Member) memberMapper.getUserByName(name);
+		List<Member> memberList = memberMapper.getUserByName(name);
 		if (name == null || password == null) {
 			data.put("date", "帐号或 密码不能为空！");
 		}
-		if (memberMapper.getUserByName(name).size() < 1) {
-			data.put("date", "帐号或 密码不能为空！");
-
-		}
-		if (member.getPassword().equals(password)) {
-			data.put("date", "帐号或 密码不能为空！");
+		if (memberList.size() < 1) {
+			data.put("date", "帐号不存在！");
+		} else if (memberList.get(0).getPassword().equals(password)) {
+			data.put("date", "登录成功！");
 		} else {
 
 		}
@@ -102,7 +100,7 @@ public class MemberServiceImpl implements IMemberService {
 
 	public List<ShuoShuo> getShuoShuoList(Long id) {
 		// TODO Auto-generated method stub
-		return memberMapper.getShuoShuoList(id) ;
+		return memberMapper.getShuoShuoList(id);
 	}
 
 }

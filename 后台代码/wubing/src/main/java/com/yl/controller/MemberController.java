@@ -21,10 +21,9 @@ public class MemberController {
 	@Autowired
 	private MemberServiceImpl memberService;
 
-
-	/*测试可用
-	 * 实例：http://localhost/dem01/member/get.json?id=3
-	 * */
+	/*
+	 * 测试可用 实例：http://localhost/dem01/member/get.json?id=3
+	 */
 	@RequestMapping(value = "get.json", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> get(Long id) {
@@ -34,9 +33,27 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "insert.json", method = RequestMethod.POST)
-	public void insert(Member member) {
+	@ResponseBody
+	public Map<String, Object> insert(String name, String password) {
+		Map<String, Object> data = new HashMap<String, Object>();
+		if (name =="" || password=="") {
+			data.put("status", "1");
+			data.put("error", "帐号或密码不能为空！");
+		}
+		if (memberService.getUserByName(name).size() >0 ) {
+			data.put("status", "1！");
+			data.put("error", "帐号已经存在！");
 
-		memberService.save(member);
+		} else {
+			Member member = new Member();
+			member.setName(name);
+			member.setPassword(password);
+			memberService.save(member);
+			data.put("status", "200");
+			data.put("body", "保存成功！");
+		}
+
+		return data;
 	}
 
 	@RequestMapping(value = "update.json", method = RequestMethod.POST)
@@ -45,9 +62,9 @@ public class MemberController {
 		memberService.update(member);
 	}
 
-	/*测试可用
-	 * 实例：http://localhost/dem01/member/delete.json?id=3
-	 * */
+	/*
+	 * 测试可用 实例：http://localhost/dem01/member/delete.json?id=3
+	 */
 	@RequestMapping(value = "delete.json", method = RequestMethod.POST)
 	public void delete(Long id) {
 
@@ -63,13 +80,12 @@ public class MemberController {
 
 	}
 
+	@RequestMapping(value = "shuoShuolist.json", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> list(Long id) {
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("date", memberService.getShuoShuoList(id));
+		return data;
 
-	   @RequestMapping(value = "shuoShuolist.json", method = RequestMethod.POST)
-			@ResponseBody
-			public Map<String, Object> list(Long id) {
-				Map<String, Object> data = new HashMap<String, Object>();
-				data.put("date", memberService.getShuoShuoList(id));
-				return data;
-
-			}
+	}
 }

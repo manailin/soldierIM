@@ -67,12 +67,12 @@
 		from lm_member A
 	</select>
 	<insert id="insert" parameterType="com.yl.domain.Member">
-		INSERT INTO lm_member( name<!-- , password, email, gender, birth, mobile,
+		INSERT INTO lm_member( name, password<!-- ,, email, gender, birth, mobile,
 			area, member_type, pic, fans, focus, help, needHelp, point, is_enable, locked_date;
 			login_False_Count, ip, attribute_value0, attribute_value1, attribute_value2,
 			attribute_value3, attribute_value4, -->
 		)
-		VALUES ( #{name}<!-- , #{password}, #{email}, #{gender}, #{birth}, #{mobile},
+		VALUES ( #{name}, #{password}<!-- , #{email}, #{gender}, #{birth}, #{mobile},
 			#{area}, #{member_type}, #{pic}, #{fans}, #{focus}, #{help}, #{needHelp},
 			#{point}, #{is_enable}, #{locked_date}; #{login_False_Count}, #{ip}, #{attribute_value0},
 			#{attribute_value1}, #{attribute_value2}, #{attribute_value3}, #{attribute_value4
